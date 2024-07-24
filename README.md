@@ -28,3 +28,6 @@ Nurudeen Rahman, Max Bär, Julian Dommann, Eveline Hurlimann, Jean Coulibaly, Sa
 If this pipeline is used for your research purposes, please cite DOI-XXX.
 
 _Any reuse of data or code is encouraged with due acknowledgement, either via citation of the published manuscript (when available) and/or the GitHub repository. Comments, suggestions, and discussions are welcome._
+
+## License
+This work is licensed under the 
