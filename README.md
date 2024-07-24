@@ -24,4 +24,7 @@ Soil-transmitted helminthiases (STH), particularly trichuriasis, pose a signific
 
 Nurudeen Rahman, Max Bär, Julian Dommann, Eveline Hurlimann, Jean Coulibaly, Said Ali, Somphou Sayasone, Prudence Beinamaryo, Jennifer Keiser*, Pierre HH Schneeberger* 
 
+## Citation
+If this pipeline is used for your research purposes, please cite DOI-XXX.
+
 _Any reuse of data or code is encouraged with due acknowledgement, either via citation of the published manuscript (when available) and/or the GitHub repository. Comments, suggestions, and discussions are welcome._
