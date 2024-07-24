@@ -9,9 +9,9 @@ Processing and analysis
 
 This repo comprises two main components designed for the sequencing and analysis of human trichuriasis using nanopore technology used in the paper **"Nanopore-based analysis unravels the genetic landscape and phylogenetic placement of human-infecting Trichuris species in four LMIC countries with endemic trichuriasis"**. Analysis includes:
 
-[Human Trichuriasis Nanopore Sequencing (ITS1/ITS2)] (https://github.com/STPHxBioinformatics/HITS2/tree/main/ITS2_Trichuriasis_nanopore_processing-main/ITS2_Trichuriasis_nanopore_processing-main)- Processing: This component is an amplicon processing pipeline for ITS1 and ITS2 sequencing.
+[Human Trichuriasis Nanopore Sequencing (ITS1/ITS2)](https://github.com/STPHxBioinformatics/HITS2/tree/main/ITS2_Trichuriasis_nanopore_processing-main/ITS2_Trichuriasis_nanopore_processing-main)- Processing: This component is an amplicon processing pipeline for ITS1 and ITS2 sequencing.
 
-[ITS2 Human trichuriasis post-processing] (https://github.com/STPHxBioinformatics/HITS2/tree/main/ITS2_Trichuriasis_post_processing-main/ITS2_Trichuriasis_post_processing-main): This component is an R script designed to analyze the output data from the nanopore sequencing pipeline.
+[ITS2 Human trichuriasis post-processing](https://github.com/STPHxBioinformatics/HITS2/tree/main/ITS2_Trichuriasis_post_processing-main/ITS2_Trichuriasis_post_processing-main): This component is an R script designed to analyze the output data from the nanopore sequencing pipeline.
 
 Together, These components provide a comprehensive workflow for processing, analyzing, and interpreting ITS1 and ITS2 sequencing data in studying human trichuriasis.
 
