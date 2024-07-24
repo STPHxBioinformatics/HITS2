@@ -1,9 +1,9 @@
 # HITS2
-Human 
-Trichuriasis 
-ITS2 
-Sequence
-Processing and analysis
+'Human 
+'Trichuriasis 
+'ITS2 
+'Sequence
+'Processing and analysis
 
 **Updated pipeline and Methods for ITS2 rDNA Nanopore Amplicon Sequencing with Custom Barcodes**
 
