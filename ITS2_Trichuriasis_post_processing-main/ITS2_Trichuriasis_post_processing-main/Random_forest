@@ -1,0 +1,113 @@
+## The input file is a tab-separated text file with the information below:
+##feature_column <- 'Fragment_Length' # Replace with actual feature column name
+##target_column <- 'Specie_name'   # Replace with actual target column name
+
+# Load packages
+library(randomForest)
+library(readr)
+library(caret)
+library(pROC)
+library(ggplot2)
+
+# Read the input file
+data <- read_tsv('data_input.txt')
+
+# Specify the feature and target columns
+feature_column <- 'Fragment_Length' # Replace with actual feature column name
+target_column <- 'Species_name' # Replace with actual target column name
+
+# Ensure the target column is a factor (for classification problems)
+data[[target_column]] <- as.factor(data[[target_column]])
+
+# Prepare the data for the model
+model_data <- data[, c(feature_column, target_column)]
+
+# Define the control using LOOCV
+train_control <- trainControl(method="LOOCV")
+
+# LOOCV Random Forest
+
+# Train the model using LOOCV
+set.seed(123) # For reproducibility
+rf_model <- train(as.formula(paste(target_column, "~ .")), data=model_data, method="rf", trControl=train_control, importance=TRUE)
+
+# Print the model summary
+print(rf_model)
+
+# Confusion matrix
+cm_loocv <- confusionMatrix(predict(rf_model, model_data), model_data[[target_column]])
+print(cm_loocv)
+
+# Make predictions on the full dataset
+predictions <- predict(rf_model, model_data, type="prob")
+
+# Calculate the ROC curve and AUC
+roc_curve <- roc(model_data[[target_column]], predictions[,2])
+
+# Plot the ROC curve
+plot(roc_curve, main="ROC Curve", xlim=c(1, 0), ylim=c(0, 1))
+
+# Print the AUC
+auc(roc_curve)
+
+# 10-Fold CV Random Forest
+
+cat("==== 10-Fold CV (Repeated 3x) Random Forest ====\n")
+train_control_10fold <- trainControl(
+  method = "repeatedcv",
+  number = 10,
+  repeats = 3,
+  classProbs = TRUE,
+  savePredictions = "final"
+)
+
+set.seed(123)
+rf_model_10fold <- train(
+  as.formula(paste(target_column, "~ .")),
+  data = model_data,
+  method = "rf",
+  trControl = train_control_10fold,
+  importance = TRUE
+)
+
+# Print 10-fold model summary
+print(rf_model_10fold)
+
+# Confusion matrix (10-fold)
+cm_10fold <- confusionMatrix(rf_model_10fold$pred$pred, rf_model_10fold$pred$obs)
+print(cm_10fold)
+
+# ROC and AUC (10-fold)
+roc_curve_10fold <- roc(
+  response = rf_model_10fold$pred$obs,
+  predictor = rf_model_10fold$pred$T_trichiura  # Replace if necessary
+)
+plot(roc_curve_10fold, main = "ROC Curve (10-Fold CV)", xlim = c(1, 0), ylim = c(0, 1))
+cat("AUC (10-Fold CV): ", auc(roc_curve_10fold), "\n")
+
+# Confusion Matrix Heatmap (10-fold CV)
+
+cm_df <- as.data.frame(cm_10fold$table)
+
+ggplot(cm_df, aes(Prediction, Reference)) +
+  geom_tile(aes(fill = Freq)) +
+  geom_text(aes(label = Freq), size = 5) +
+  scale_fill_gradient(low = "white", high = "steelblue") +
+  theme_minimal() +
+  labs(title = "Confusion Matrix Heatmap (10-Fold CV)", fill = "Count")
+
+# Confusion Matrix Heatmap (LOOCV)
+
+# Generate confusion matrix
+cm_loocv <- confusionMatrix(predict(rf_model, model_data), model_data[[target_column]])
+
+# Convert confusion matrix to dataframe
+cm_loocv_df <- as.data.frame(cm_loocv$table)
+
+# Plot heatmap
+ggplot(cm_loocv_df, aes(Prediction, Reference)) +
+  geom_tile(aes(fill = Freq)) +
+  geom_text(aes(label = Freq), size = 5) +
+  scale_fill_gradient(low = "white", high = "steelblue") +
+  theme_minimal() +
+  labs(title = "Confusion Matrix Heatmap (LOOCV)", fill = "Count")
