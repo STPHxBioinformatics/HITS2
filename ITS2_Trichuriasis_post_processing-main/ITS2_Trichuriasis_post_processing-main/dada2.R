@@ -24,8 +24,8 @@ get.sample.name <- function(fname) strsplit(basename(fname), ".fastq")[[1]][1]
 sample.names <- unname(sapply(filt_files, get.sample.name))
 head(sample.names)
 
-# Sequence filter -  change minLen to your actual amplicon length; maxEE = 15 (15/500 = < 3% error rate)
-out <- filterAndTrim(filt_files, filt, minLen=425, maxLen=700, maxN=0, rm.phix=FALSE, maxEE=c(15), compress=FALSE)
+# Sequence filter -  change minLen to your actual amplicon length
+out <- filterAndTrim(filt_files, filt, minLen=520, maxLen=700, maxN=0, rm.phix=FALSE, maxEE=3, compress=FALSE)
 
 #List all files
 filtered_files <- sort(list.files(filt, pattern = ".fastq", full.names = TRUE))
