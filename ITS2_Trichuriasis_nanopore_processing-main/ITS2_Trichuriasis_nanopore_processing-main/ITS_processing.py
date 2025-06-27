@@ -33,7 +33,7 @@ def run_command_its1_its2(input_folder, verbose=False):
 
     command_seqkit_its1 = (
         "for i in $(cat ./ID_ITS1); "
-        f"do seqkit seq -j {threads} -Q 9 --min-len 800 --max-len 900 ./{input_folder}/$i\.fastq > "
+        f"do seqkit seq -j {threads} -Q 12 --min-len 800 --max-len 900 ./{input_folder}/$i\.fastq > "
         f"./01_qual_length_filter/$i\_qual_leng_filt.fastq; done"
     )
     subprocess.run(command_seqkit_its1, shell=True)
@@ -42,7 +42,7 @@ def run_command_its1_its2(input_folder, verbose=False):
 
     command_seqkit_its2 = (
         "for i in $(cat ./ID_ITS2); "
-        f"do seqkit seq -j {threads} -Q 9 --min-len 450 --max-len 750 ./{input_folder}/$i\.fastq > "
+        f"do seqkit seq -j {threads} -Q 12 --min-len 520 --max-len 750 ./{input_folder}/$i\.fastq > "
         f"./01_qual_length_filter/$i\_qual_leng_filt.fastq; done"
     )
     subprocess.run(command_seqkit_its2, shell=True)
@@ -155,7 +155,7 @@ def final_length_filter(main_folder, verbose=False):
 
     command_final_length_filter = (
         "for i in $(cat ./ID_FILT); "
-        f"do seqkit seq -j {threads} --min-len 425  04_sample_fastq_files/$i\_extracted.fastq > "
+        f"do seqkit seq -j {threads} --min-len 520  04_sample_fastq_files/$i\_extracted.fastq > "
         f"05_final_length_filter/$i\_2nd_len_filter.fastq; done"
     )
     subprocess.run(command_final_length_filter, shell=True)
