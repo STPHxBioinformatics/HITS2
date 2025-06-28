@@ -30,7 +30,7 @@ Soil-transmitted helminthiases, particularly trichuriasis, affect over 500 milli
 
 ## Authors
 
-Nurudeen Rahman, Max Bär, Julian Dommann, Eveline Hurlimann, Jean Coulibaly, Said Ali, Somphou Sayasone, Prudence Beinamaryo, Jennifer Keiser*, Pierre HH Schneeberger* 
+Nurudeen Rahman, Max Bär, Julian Dommann, Eveline Hurlimann, Jean Coulibaly, Said Ali, Somphou Sayasone, Prudence Beinamaryo, Jennifer Keiser, Pierre HH Schneeberger 
 
 ## Citation
 If this pipeline is used for your research purposes, please cite DOI-XXX.
