@@ -15,7 +15,7 @@ Processing and analysis
 
 **Updated pipeline and Methods for ITS2 rDNA Nanopore Amplicon Sequencing with Custom Barcodes**
 
-This repo comprises two main components designed for the sequencing and analysis of human trichuriasis using nanopore technology used in the paper **"Nanopore-based analysis unravels the genetic landscape and phylogenetic relationships of human-infecting *Trichuris incognita* and *Trichuris trichiura* in Côte d’Ivoire, Uganda, Tanzania, and Laos "**. Analysis includes:
+This repo comprises two main components designed for the sequencing and analysis of human trichuriasis using nanopore technology used in the paper **"Nanopore-based analysis unravels the genetic landscape and phylogenetic relationships of human-infecting *Trichuris incognita* and *Trichuris trichiura* in Côte d’Ivoire, Uganda, Tanzania, and Laos"**. Analysis includes:
 
 [Human Trichuriasis Nanopore Sequencing (ITS1/ITS2)](https://github.com/STPHxBioinformatics/HITS2/tree/main/ITS2_Trichuriasis_nanopore_processing-main/ITS2_Trichuriasis_nanopore_processing-main)- Processing: This component is an amplicon processing pipeline for ITS1 and ITS2 sequencing.
 
